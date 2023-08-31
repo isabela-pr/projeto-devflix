@@ -45,8 +45,11 @@ const MovieDesc = ({ movies, click }) => {
           <div className={styles.containerFlex}>
             Avaliação: {movie.imdbRating}/10 relevante | duração: {movie.Runtime} |{" "}
             {movie.Year}
+            <p>País: {movie.Country}</p>
           </div>
           <div className={styles.containerFlex}>
+            <p>Diretor: {movie.Director}</p>
+            <p>Bilheteria: {movie.BoxOffice}</p>
             <p>Elenco: {movie.Actors}</p>
             <p>Gênero: {movie.Genre}</p>
           </div>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-import logo from "../assets/devflix.png";
+import logo from "../assets/projeto-devflix.png";
 import searchIcon from "../assets/search.svg";
 
 import "./App.css";
@@ -34,26 +34,32 @@ const App = () => {
   // fetch(apiUrl).then((response) => response.json()).then((data) => console.log(data));
   return (
     <div id="app">
-      <div className="logo">
-        <img src={logo} alt="logo devflix" />
+      <div className="head">
+        <div className="logo">
+          <img src={logo} alt="logo devflix" />
+        </div>
+          <div className="search">
+            <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyPress}
+              placeholder="Pesquise por filmes"
+            />
+            <img
+              src={searchIcon}
+              alt="Icone de pesquisa"
+              onClick={() => searchMovies(searchTerm)}
+            />
+          </div>
       </div>
-      <div className="search">
-        <input
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyDown={handleKeyPress}
-          placeholder="Pesquise por filmes"
-        />
-        <img
-          src={searchIcon}
-          alt="Icone de pesquisa"
-          onClick={() => searchMovies(searchTerm)}
-        />
+      <div className="trending">
+        <p>Trending Now <ion-icon name="flame-outline"/> </p>
+        
       </div>
       {movies?.length > 0 ? (
         <div className="container">
           {movies.map((movie) => (
-            <MovieCard key={movie.imdbID} movies={movie}/>
+            <MovieCard key={movie.imdbID} movies={movie} />
           ))}
         </div>
       ) : (
@@ -61,7 +67,7 @@ const App = () => {
           <h2>Nenhum filme encontrado 😖</h2>
         </div>
       )}
-      
+
       <Footer link={"https:github.com.br"}>isabela-pr</Footer>
     </div>
   );
