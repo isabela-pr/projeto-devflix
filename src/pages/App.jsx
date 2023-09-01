@@ -54,7 +54,6 @@ const App = () => {
       </div>
       <div className="trending">
         <p>Trending Now <ion-icon name="flame-outline"/> </p>
-        
       </div>
       {movies?.length > 0 ? (
         <div className="container">

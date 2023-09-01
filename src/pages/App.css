@@ -7,11 +7,11 @@
 * {
   margin: 0;
   border: 0;
-  box-sizing: border-box;
   font-family: var(--font-raleway);
 }
 
 body {
+  box-sizing: border-box;
   background-color: #18122b;
 }
 
@@ -26,24 +26,24 @@ body {
 .head {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10em;
 }
 
-.trending{
-    display: flex;
-    padding: 4em 78em 2em 1em;
-    
+.trending {
+  width: 100%;
+  display: flex;
+  justify-content: baseline;
 }
-
 .trending p {
   color: #443c68;
   font-family: Gurajada;
   font-size: 40px;
 }
 
-.trending p ion-icon{
-    color: #fff;
-  }
+.trending p ion-icon {
+  color: #fff;
+}
 
 .logo {
   max-width: 100%;
@@ -51,10 +51,10 @@ body {
 }
 
 .logo img {
-  width: 40%;
+  width: 10em;
   height: auto;
-  /* display: block; */
-  /* margin: auto;  */
+  /* display: block;
+  margin: auto;  */
 }
 
 .search {
@@ -96,15 +96,19 @@ body {
 
 .container {
   width: 100%;
+  height: 500px;
   margin-top: 3rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  overflow-x: scroll;
+  box-sizing: content-box;
 }
 
-.trending {
-  width: 3px;
+::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -124,7 +128,7 @@ body {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
   .app {
     padding: 4rem 1rem;
   }
@@ -132,10 +136,21 @@ body {
     font-size: 2rem;
   }
   .container {
+    height: 100%;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
   }
   .movie {
     width: 100%;
     margin: 1rem;
+  }
+  .head {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+  .trending {
+    justify-content: center;
   }
 }
