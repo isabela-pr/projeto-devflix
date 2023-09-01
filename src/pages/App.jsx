@@ -11,12 +11,16 @@ import Footer from "../components/footer/footer";
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
+  const [series, setSeries] = useState([]);
 
   const apiKey = "b95efe03";
   const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
   useEffect(() => {
     searchMovies("Batman");
+  }, []);
+  useEffect(() => {
+    searchSeries("Avengers");
   }, []);
 
   const searchMovies = async (title) => {
@@ -25,6 +29,13 @@ const App = () => {
 
     console.log(data);
     setMovies(data.Search);
+  };
+  const searchSeries = async (title) => {
+    const response = await fetch(`${apiUrl}&S=${title}`);
+    const data = await response.json();
+
+    console.log(data);
+    setSeries(data.Search);
   };
 
   const handleKeyPress = (e) => {
@@ -59,6 +70,20 @@ const App = () => {
         <div className="container">
           {movies.map((movie) => (
             <MovieCard key={movie.imdbID} movies={movie} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty">
+          <h2>Nenhum filme encontrado 😖</h2>
+        </div>
+      )}
+      <div className="trending">
+        <p>Recomended ▶</p>
+      </div>
+      {series?.length > 0 ? (
+        <div className="containerRec">
+          {series.map((series) => (
+            <MovieCard key={series.imdbID} movies={series} />
           ))}
         </div>
       ) : (
