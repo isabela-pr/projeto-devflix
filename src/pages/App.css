@@ -26,6 +26,7 @@ body {
 .head {
   display: flex;
   justify-content: center;
+  gap: 10em;
 }
 
 .trending{
@@ -52,8 +53,8 @@ body {
 .logo img {
   width: 40%;
   height: auto;
-  /* display: block;
-  margin: auto;  */
+  /* display: block; */
+  /* margin: auto;  */
 }
 
 .search {
